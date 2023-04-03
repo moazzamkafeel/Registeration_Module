@@ -7,23 +7,24 @@ import org.springframework.stereotype.Service;
 
 import Base.entities.User;
 import Base.repositories.Repo;
+import Base.repositories.UserRepo;
 
 @Service
-public class Service_Impl implements Service_Interface
+public class UserServiceImpl implements UserService
 {
 	@Autowired
-	Repo repo;
+	UserRepo userRepo;
 
 	@Override
 	public User saveUser(User user) {
 	
-		return repo.save(user);
+		return userRepo.save(user);
 	}
 
 	@Override
 	public List<User> getList() {
 		
-		return repo.findAll();
+		return userRepo.findAll();
 	}
 
 	

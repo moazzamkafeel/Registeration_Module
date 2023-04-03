@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -20,48 +22,61 @@ public class User {
 	private long id;
 
 	@Email(message = "Invalid email format")  
-	@NotBlank(message = "Email is required")
+	@NotEmpty(message = "Email is required")
+	@NotNull
 	private String email;
 
-	@NotBlank(message = "Mobile number is required")
+	@NotEmpty(message = "Mobile number is required")
 	@Pattern(regexp = "^[0-9]{10}$", message = "Invalid mobile number format")
+	@NotNull
 	private String mobileNo;
 
-	@NotBlank(message = "Pin code is required")
+	@NotEmpty(message = "Pin code is required")
 	@Pattern(regexp = "^[0-9]{6}$", message = "Invalid pin code format")
+	@NotNull
 	private String pinCode;
 	
-	@NotBlank(message = "PAN card number is required")
+	@NotEmpty(message = "PAN card number is required")
 	@Pattern(regexp = "^[0-9]{10}$", message = "Invalid PAN card number format")
+	@NotNull
 	private String panCard;
 	
-	@NotBlank(message = "Aadhaar card number is required")
+	@NotEmpty(message = "Aadhaar card number is required")
 	@Pattern(regexp = "^[0-9]{12}$", message = "Invalid Aadhaar card number format")
+	@NotNull
 	private String aadhaarCard;
 	
-	@NotBlank(message = "Confirm password is required")
+	@NotEmpty(message = "Confirm password is required")
+	@NotNull
 	private String confirmPassword;
 	
-	@NotBlank(message = "Full name is required")
+	@NotEmpty(message = "Full name is required")
+	@NotNull
 	private String fullName;
 
-	@NotBlank(message = "Country is required")
+	@NotEmpty(message = "Country is required")
+	@NotNull
 	 private String country;
 	
-	@NotBlank(message = "State is required")
+	@NotEmpty(message = "State is required")
+	@NotNull
 	private String state;
 	
-	@NotBlank(message = "City is required")
+	@NotEmpty(message = "City is required")
+	@NotNull
 	private String city;
 	
-	@NotBlank(message = "District is required")
+	@NotEmpty(message = "District is required")
+	@NotNull
 	private String district;
     
-	@NotBlank(message = "User Type is required")
+	@NotEmpty(message = "User Type is required")
+	@NotNull
 	private String userType;
 	
-	@NotBlank(message = "Password is required")
+	@NotEmpty(message = "Password is required")
 	@Pattern(regexp="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$")
+	@NotNull
 	private String password;
 
 	public String getPassword() {
