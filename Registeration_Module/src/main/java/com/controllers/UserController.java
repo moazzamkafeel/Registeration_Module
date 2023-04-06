@@ -1,4 +1,4 @@
-package Base.controllers;
+package com.controllers;
 
 import java.util.List;
 
@@ -14,9 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import Base.entities.User;
-
-import Base.service.UserService;
+import com.entities.User;
+import com.service.UserService;
 
 @RestController
 @RequestMapping("/users")
@@ -43,7 +42,7 @@ public class UserController
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<User> update(@RequestBody User user)
+	public ResponseEntity<User> update(@Valid @RequestBody User user)
 	{
 	User u = userService.saveUser(user);
 		return new ResponseEntity<User>(u,HttpStatus.CREATED);

@@ -1,31 +1,33 @@
-package Base.service;
+package com.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import Base.entities.User;
-import Base.repositories.Repo;
-import Base.repositories.UserRepo;
+import com.entities.User;
+import com.repositories.UserRepository;
+
 
 @Service
 public class UserServiceImpl implements UserService
 {
 	@Autowired
-	UserRepo userRepo;
+	UserRepository userRepository;
 
 	@Override
 	public User saveUser(User user) {
 	
-		return userRepo.save(user);
+		return userRepository.save(user);
 	}
 
 	@Override
 	public List<User> getList() {
 		
-		return userRepo.findAll();
+		return userRepository.findAll();
 	}
+
+
 
 	
 	
