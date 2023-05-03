@@ -24,13 +24,13 @@ public class UserServiceImpl implements UserService
 	@Override
 	public List<User> getList() {
 		
-		return userRepository.findAll();
+		return userRepository.getAllRecord();
 	}
 
 	@Override
 	public User getByEmail(String email) {
 	
-		return userRepository.findByEmail(email);
+		return userRepository.getByEmail(email);
 	}
 
 	@Override
@@ -52,10 +52,10 @@ public class UserServiceImpl implements UserService
 	}
 
 	@Override
-	public List<User> getByAdharPan(String aadhaarCard, String panCard) {
+	public List<User> getByAdharPan(String adhar, String pan) {
 		
 		
-		return userRepository.getAdharandPan(aadhaarCard, panCard);
+		return userRepository.findByAdharOrPan(adhar, pan);
 	}
 
 	@Override
@@ -64,6 +64,8 @@ public class UserServiceImpl implements UserService
 		
 		return userRepository.findByMobileNo(mobileNo);
 	}
+
+
 
 	
 

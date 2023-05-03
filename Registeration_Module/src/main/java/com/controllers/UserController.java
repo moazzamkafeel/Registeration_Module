@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.entities.User;
@@ -24,17 +25,16 @@ import com.service.UserService;
 @RequestMapping("/users")
 public class UserController 
 {  
-	@Autowired
-	UserService userService;
+	
+@Autowired
+UserService userService;
 
-
-	@PostMapping("/signup")
-	public ResponseEntity<User> saveUser(@Valid @RequestBody User user)
-	{
+@PostMapping("/signup")
+public ResponseEntity<User> saveUser(@Valid @RequestBody User user)
+{
 		User s = userService.saveUser(user);
-		
 		return new ResponseEntity<User>(s,HttpStatus.CREATED);
-	}
+}
 	
 	@GetMapping("/fetchAll")
 	public ResponseEntity<List<User>> getAll()
@@ -49,14 +49,6 @@ public class UserController
 	     User u = userService.saveUser(user);
 		return new ResponseEntity<User>(u,HttpStatus.CREATED);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	@GetMapping("/find/{email}")
 	public ResponseEntity<User> findByEmail(@PathVariable String email )
 	{
@@ -101,15 +93,12 @@ public class UserController
 	}
 
 	
-	@GetMapping("/adharpan/{aadhaarCard}/{panCard}")
-	public ResponseEntity<List<User>> findByAdharAndPan(@PathVariable("aadhaarCard") String aadhaarCard,@PathVariable("panCard") String panCard)
+	@GetMapping("/adharpan/{adhar}/{pan}")
+	public ResponseEntity<List<User>> findByAdharAndPan(@PathVariable String adhar,@PathVariable String pan)
 	{
 	
-			List<User> e = userService.getByAdharPan(aadhaarCard, panCard);
-			if(e==null)
-			{
-				throw new NoSuchElementException();
-			}
+			List<User> e = userService.getByAdharPan(adhar, pan);
+		
 			return new ResponseEntity<List<User>>(e,HttpStatus.OK);
 	}
 	
@@ -125,5 +114,14 @@ public class UserController
 			return new ResponseEntity<User>(e,HttpStatus.OK);
 			
 	}
+
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

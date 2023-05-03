@@ -24,6 +24,7 @@ public class User {
 	private long id;
 
 	@Email(message = "Invalid email format")  
+	
 	@NotEmpty(message = "Email is required")
 	@NotNull
 	private String email;
@@ -41,12 +42,12 @@ public class User {
 	@NotEmpty(message = "PAN card number is required")
 	@Pattern(regexp = "^[0-9]{10}$", message = "Invalid PAN card number format")
 	@NotNull
-	private String panCard;
+	private String pan;
 	
 	@NotEmpty(message = "Aadhaar card number is required")
 	@Pattern(regexp = "^[0-9]{12}$", message = "Invalid Aadhaar card number format")
 	@NotNull
-	private String aadhaarCard;
+	private String adhar;
 	
 	@NotEmpty(message = "Confirm password is required")
 	@NotNull
@@ -121,20 +122,20 @@ public class User {
 		this.pinCode = pinCode;
 	}
 
-	public String getPanCard() {
-		return panCard;
+	public String getpan() {
+		return pan;
 	}
 
-	public void setPanCard(String panCard) {
-		this.panCard = panCard;
+	public void setpan(String pan) {
+		this.pan = pan;
 	}
 
-	public String getAadhaarCard() {
-		return aadhaarCard;
+	public String getadhar() {
+		return adhar;
 	}
 
-	public void setAadhaarCard(String aadhaarCard) {
-		this.aadhaarCard = aadhaarCard;
+	public void setadhar(String adhar) {
+		this.adhar = adhar;
 	}
 
 	public String getConfirmPassword() {

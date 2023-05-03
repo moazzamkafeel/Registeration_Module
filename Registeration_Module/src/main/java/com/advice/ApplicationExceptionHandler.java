@@ -30,7 +30,8 @@ public class ApplicationExceptionHandler {
 	@ExceptionHandler(NoSuchElementException.class)
 	public ResponseEntity<String> handleNoSuchElement(NoSuchElementException elementException)
 	{
-		return new ResponseEntity<String>("No value present in DB Please Check Your Input",
+		return new 
+		ResponseEntity<String>("No value present in DB Please Check Your Input",
 				HttpStatus.NOT_FOUND);
 	}		
 	

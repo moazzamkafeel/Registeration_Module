@@ -5,6 +5,7 @@ import java.util.List;
 import com.entities.User;
 
 public interface UserService {
+	
 	User saveUser(User user);
 
 	List<User> getList();
@@ -17,8 +18,11 @@ public interface UserService {
 
 	List<User> getByState(String state);
 
-	List<User> getByAdharPan(String aadhaarCard, String panCard);
+	List<User> getByAdharPan(String adhar, String pan);
 
 	User getByNumber(String mobileNo);
+
+	
+	
 
 }
