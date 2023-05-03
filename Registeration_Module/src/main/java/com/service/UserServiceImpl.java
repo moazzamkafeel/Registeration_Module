@@ -36,13 +36,13 @@ public class UserServiceImpl implements UserService
 	@Override
 	public User getByName(String fullName) {
 	
-		return userRepository.findByFullName(fullName);
+		return userRepository.findByFullNameOrderByFullName(fullName);
 	}
 
 	@Override
 	public List<User> getByCountry(String country) 
 	{
-		return userRepository.findByCountry(country);
+		return userRepository.findByCountryContaining(country);
 	}
 
 	@Override
