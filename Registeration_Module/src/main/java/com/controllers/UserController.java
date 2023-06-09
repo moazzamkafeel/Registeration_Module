@@ -6,6 +6,7 @@ import java.util.Objects;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,23 +16,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.entities.User;
 import com.service.UserService;
 
+
 @RestController
 @RequestMapping("/users")
 public class UserController 
-{  
+{   
 	
+	
+	Logger log= org.slf4j.LoggerFactory.getLogger(UserController.class);
 @Autowired
 UserService userService;
 
 @PostMapping("/signup")
 public ResponseEntity<User> saveUser(@Valid @RequestBody User user)
 {
+	
 		User s = userService.saveUser(user);
 		return new ResponseEntity<User>(s,HttpStatus.CREATED);
 }
@@ -52,11 +56,16 @@ public ResponseEntity<User> saveUser(@Valid @RequestBody User user)
 	@GetMapping("/find/{email}")
 	public ResponseEntity<User> findByEmail(@PathVariable String email )
 	{
-			User e = userService.getByEmail(email);
-			if(e==null)
+		
+		log.debug("Request {}",email);
+		User e = userService.getByEmail(email);
+		 if(e==null)
 			{
+			 log.debug("email inccorect");
 				throw new NoSuchElementException();
 			}
+		log.debug("Reponse {}",e);
+		
 			return new ResponseEntity<User>(e,HttpStatus.OK);
 	}
 	

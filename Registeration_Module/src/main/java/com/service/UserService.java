@@ -12,7 +12,7 @@ public interface UserService {
 
 	User getByEmail(String email);
 
-	User getByName(String fullName);
+	User getByName(String mobileNo);
 
 	List<User> getByCountry(String country);
 

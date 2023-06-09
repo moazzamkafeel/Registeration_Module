@@ -18,6 +18,7 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	@Query("select s from User s where s.email=:c")
 	User getByEmail(@Param("c")String email);
 	
+	
     User findByFullNameOrderByFullName(String fullName);
     
     List<User> findByCountryContaining(String country); 
@@ -25,6 +26,8 @@ public interface UserRepository extends JpaRepository<User, Long>{
     
     List<User> findByState(String state);
     
+@Query(value="select * from User s where s.state=:state",nativeQuery = true)
+    List<User> findCountry(@Param("state")String state);
 
 //Custom Finder Method	// Derived Query
     List<User> findByAdharOrPan(String adhar,String pan);
@@ -35,15 +38,17 @@ public interface UserRepository extends JpaRepository<User, Long>{
 //JPQL same query
 @Query("select s from User s where s.adhar=:a or s.pan=:p")
 	List<User> getByAdharAndPan(@Param("a")String adhar,@Param("p") String pan);
-	
     User findByMobileNo(String mobileNo);
 
     //findByNameStartingWith(String prefix);
     //findByNameEndingWith(String suffix);
     //findByAgeIn(Collection<> name);
   //findByNameOrderByName(String name);
-	
-	
+    
+
+	//StateBean getStateBeanStateNameByStCode(String stCode); 
+   
+   
 	
 	
 

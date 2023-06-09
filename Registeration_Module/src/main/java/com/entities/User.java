@@ -14,6 +14,9 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.UniqueElements;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.Data;
 @Entity
 @Table(name="User_details")
@@ -24,7 +27,6 @@ public class User {
 	private long id;
 
 	@Email(message = "Invalid email format")  
-	
 	@NotEmpty(message = "Email is required")
 	@NotNull
 	private String email;
