@@ -40,6 +40,7 @@ public class UserController {
 		User s = userService.saveUser(user);
 		return new ResponseEntity<User>(s, HttpStatus.CREATED);
 	}
+	
 	@GetMapping("/roles")
 	public ResponseEntity<?> getRoles()
 	{
