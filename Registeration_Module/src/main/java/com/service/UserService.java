@@ -1,14 +1,16 @@
 package com.service;
 
 import java.util.List;
+import java.util.Map;
 
+import com.dto.PinCodeDTO;
 import com.entities.User;
 
 public interface UserService {
 	
 	User saveUser(User user);
 
-	List<User> getList();
+	List<PinCodeDTO> getList();
 
 	User getByEmail(String email);
 
@@ -21,6 +23,8 @@ public interface UserService {
 	List<User> getByAdharPan(String adhar, String pan);
 
 	User getByNumber(String mobileNo);
+	
+	Map<Object, List<User>> getByRoles();
 
 	
 	
