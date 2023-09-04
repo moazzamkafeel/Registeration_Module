@@ -26,7 +26,6 @@ import com.entities.User;
 import com.service.UserService;
 
 @RestController
-//main
 @RequestMapping("/users")
 public class UserController {
 	
@@ -42,6 +41,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/roles")
+	//Roles
 	public ResponseEntity<?> getRoles()
 	{
 		 Map<Object, List<User>> s = userService.getByRoles();
