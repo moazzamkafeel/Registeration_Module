@@ -26,7 +26,7 @@ import com.entities.User;
 import com.service.UserService;
 
 @RestController
-//Resolve
+//mk
 @RequestMapping("/users")
 public class UserController {
 	
