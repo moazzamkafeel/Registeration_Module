@@ -41,6 +41,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/roles")
+	//Roles
 	public ResponseEntity<?> getRoles()
 	{
 		 Map<Object, List<User>> s = userService.getByRoles();
